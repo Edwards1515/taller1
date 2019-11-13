@@ -1,0 +1,47 @@
+[
+    {
+        "_id":"5431bcad1",
+        "nombre":"Pablo Perilla",
+        "empresa":"Getel",
+        "email":"pabloperilla@getel.com",
+        "productosComprados":1,
+        "carteraPendiente": 532143
+
+    },
+    {
+        "_id":"5431bcad2",
+        "nombre":"Juan Carlos Padra",
+        "empresa":"Insercor",
+        "email":"juan.padra@insercor.co",
+        "productosComprados":5,
+        "carteraPendiente": 1532889
+
+    },
+    {
+        "_id":"5431bcad7",
+        "nombre":"Miguel Gálvis",
+        "empresa":"Larquin",
+        "email":"m.galvis@larquin.com",
+        "productosComprados":3,
+        "carteraPendiente": 548900
+
+    },
+    {
+        "_id":"5431bacd8",
+        "nombre":"Nicolás Salazar",
+        "empresa":"NCodes",
+        "email":"nicolas.salazar@ncodes.co",
+        "productosComprados":0,
+        "carteraPendiente": 0
+
+    },
+    {
+        "_id":"5432bcad1",
+        "nombre":"Gabriela Mejía",
+        "empresa":"Universidad El Bosque",
+        "email":"g.mejia@unbosque.edu.co",
+        "productosComprados":0,
+        "carteraPendiente": 254159
+
+    }
+]
