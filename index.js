@@ -17,13 +17,13 @@ app.use(cors({
   //   }
   // },
   origin: "*",
-  methods: ["GET", "POST", "PATCH", "PUT", "DETELE"],
+  methods: ["GET", "POST", "PATCH", "PUT", "DELETE"],
   exposedHeaders: ["Content-Type"],
   optionsSuccessStatus: 200
 }));
 
 //Configuración del servidor:
-const port = process.env.PORT || 5000
+const port = process.env.PORT || 4400
 app.set('port', port);
 
 //Utilidades:
@@ -31,10 +31,7 @@ app.use(morgan('dev'));
 app.use(express.json());
 
 //Rutas:
-app.use('/parcial',require('./rutas/parcial'));
-app.use('/adminDatos',require('./rutas/adminClientes/adminClientes'));
-
-
+app.use('/data',require('./rutas/dataManagement.js'));
 //Listener principal:
 app.listen(port, function () {
   console.log(`Servidor corriendo en puerto: ${port}`);
