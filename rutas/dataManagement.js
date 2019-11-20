@@ -3,59 +3,15 @@ const Promo = require('../modelos/Promos');
 const Restaurante = require('../modelos/Restaurantes');
 
 //Numeral 1 Start
-router.post('/crearPromo', async (req, res) => {
-    let miNuevaPromo = new Promo({
-        nombre: req.body.nombre,
-        descripcion: req.body.descripcion,
-        premium: req.body.premium,
-        fechaIni: req.body.fechaIni,
-        fechaFin: req.body.fechaFin,
-        idRestaurante: req.body.idRestaurante,
-        activo: req.body.activo
-    });
-
-    miNuevaPromo.save()
-        .then((nodo) => {
-            res.json({
-                status: "ok",
-                nodoCreado: nodo
-            });
-        })
-        .catch((err) => {
-            res.json({
-                status: "fail",
-                error: err
-            });
-        });
-});
-
-router.post('/crearDocente', async (req, res) => {
-    let miNuevoDocente = new Docente({
-        nombre: req.body.nombre,
-        informacionLaboral: req.body.informacionLaboral
-    });
-
-    miNuevoDocente.save()
-        .then((nodo) => {
-            res.json({
-                status: "ok",
-                nodoCreado: nodo
-            });
-        })
-        .catch((err) => {
-            res.json({
-                status: "fail",
-                error: err
-            });
-        });
-});
 
 //Numeral 1 End
 
 //Numeral 2 Start
+
 //Numeral 2 End
 
 //Numeral 3 Start
+
 //Numeral 3 End
 
 //Numeral 4 Start
@@ -90,14 +46,18 @@ router.get('/obtenerPromoMasRestaurante/:id', async (req, res) => {
 //Numeral 4 End
 
 //Numeral 5 Start
-router.get('/obtenerCursoPorNombre', async (req, res) => {
+router.get('/obtenerPromosDeRestaurante/:id', async (req, res) => {
 
-    Restaurante.find()
-        .then((elNodo) => {
+    let idTarget = req.params.id;
+
+    Promo.find({ idRestaurante : idTarget})
+        .then((elRestaurante) => {
+        
             res.json({
-                "status": "ok",
-                "curso": elNodo
-            });
+                        "status": "ok",
+                        "Promo": elRestaurante
+                    });
+        
         })
         .catch((err) => {
             res.json({
@@ -160,5 +120,46 @@ router.post('/crearPromo', async (req, res) => {
         });
 });
 //Numeral 7 End
+
+//Numeral 8 Start
+router.put('/actualizarDatoRestaurante/:id', async (req, res) => {
+
+    Restaurante.findByIdAndUpdate(req.params.id,
+        req.body.queryUpdate)
+        .then(() => {
+            res.json({
+                "status": "ok"
+        });
+        })
+        .catch((err) => {
+            res.json({
+                "status": "fail",
+                "error": err
+        });
+    });
+});
+//Numeral 8 End
+
+//Numeral 9 Start
+router.put('/cambiarEstadoPromo/:id', async (req, res) => {
+    
+    let idTarget = req.params.id;
+    
+    Promo.findByIdAndUpdate( idTarget ,{$set: { activo : false } })
+        .then(() => {
+            res.json({
+                "status": "ok"
+        });
+        })
+        .catch((err) => {
+            res.json({
+                "status": "fail",
+                "error": err
+            });
+        });
+
+
+});
+//Numeral 9 End
 
 module.exports = router;
