@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const Restaurante = new Schema();
+const Restaurantes = new Schema();
 
-Restaurante.add({
+Restaurantes.add({
     nombre: {type: String, required:true},
     direccion: {type: String, required: true},
     activo: {type: Boolean, required: true}
 });
 
-module.exports = mongoose.model('Restaurante', Restaurante);
+module.exports = mongoose.model('Restaurantes', Restaurantes);
