@@ -6,7 +6,7 @@ const Restaurante = require('../modelos/Restaurantes');
 
 //Numeral 1 End
 
-//Numeral 2 Start
+//Numeral 2 Start VAMOS AQUI
 router.get('/obtenerPromosPremiumRecientes', async (req, res) => {
 
     Promo.find({ premium: true }).sort({ premium: 1 }).limit(5)
