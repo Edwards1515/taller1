@@ -1,5 +1,5 @@
 var router = require('express').Router();
-const Promo = require('../modelos/Promociones');
+const Promo = require('../modelos/Promos');
 const Restaurante = require('../modelos/Restaurantes');
 
 //Numeral 1 Start

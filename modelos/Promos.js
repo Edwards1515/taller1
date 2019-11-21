@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const Promociones = new Schema();
+const Promo = new Schema();
 
-Promociones.add({
+Promo.add({
     nombre: {type: String, required:true},
     descripcion: {type: String, required:true},
     premium: {type: Boolean, required: true},
@@ -13,4 +13,4 @@ Promociones.add({
     activo: {type: Boolean, required: true}
 });
 
-module.exports = mongoose.model('Promociones', Promociones);
+module.exports = mongoose.model('Promo', Promo);
