@@ -9,21 +9,23 @@ const Restaurante = require('../modelos/Restaurantes');
 //Numeral 2 Start VAMOS AQUI
 router.get('/obtenerPromosPremiumRecientes', async (req, res) => {
 
-    Promo.find({ premium: true }).sort({ premium: 1 }).limit(5)
-        .then(({ lasPromos }) => {
-            res.json({
-                "status": "ok",
-                "Promos": lasPromos
-            });
-        })
-        .catch((err) => {
-            res.json({
-                "status": "fail",
-                "error": err
-            });
-        });
+    Promo.find({premium:true}).sort({premium:1}).limit(5)
+    .then((lasPromos) => {
+        
+       res.json({
+            "status": "ok",
+            "nodo":lasPromos
 
-}); 
+        });
+    })
+    .catch((err) => {
+        res.json({
+            "status": "fail",
+            "error": err
+        });
+    });
+
+});
 //Numeral 2 End
 
 //Numeral 3 Start
