@@ -7,7 +7,23 @@ const Restaurante = require('../modelos/Restaurantes');
 //Numeral 1 End
 
 //Numeral 2 Start
+router.get('/obtenerPromosPremiumRecientes', async (req, res) => {
 
+    Promo.find({ premium: true }).sort({ premium: 1 }).limit(5)
+        .then(({ lasPromos }) => {
+            res.json({
+                "status": "ok",
+                "Promos": lasPromos
+            });
+        })
+        .catch((err) => {
+            res.json({
+                "status": "fail",
+                "error": err
+            });
+        });
+
+}); 
 //Numeral 2 End
 
 //Numeral 3 Start
@@ -50,14 +66,14 @@ router.get('/obtenerPromosDeRestaurante/:id', async (req, res) => {
 
     let idTarget = req.params.id;
 
-    Promo.find({ idRestaurante : idTarget})
+    Promo.find({ idRestaurante: idTarget })
         .then((elRestaurante) => {
-        
+
             res.json({
-                        "status": "ok",
-                        "Promo": elRestaurante
-                    });
-        
+                "status": "ok",
+                "Promo": elRestaurante
+            });
+
         })
         .catch((err) => {
             res.json({
@@ -129,27 +145,27 @@ router.put('/actualizarDatoRestaurante/:id', async (req, res) => {
         .then(() => {
             res.json({
                 "status": "ok"
-        });
+            });
         })
         .catch((err) => {
             res.json({
                 "status": "fail",
                 "error": err
+            });
         });
-    });
 });
 //Numeral 8 End
 
 //Numeral 9 Start
 router.put('/cambiarEstadoPromo/:id', async (req, res) => {
-    
+
     let idTarget = req.params.id;
-    
-    Promo.findByIdAndUpdate( idTarget ,{$set: { activo : false } })
+
+    Promo.findByIdAndUpdate(idTarget, { $set: { activo: false } })
         .then(() => {
             res.json({
                 "status": "ok"
-        });
+            });
         })
         .catch((err) => {
             res.json({
