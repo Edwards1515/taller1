@@ -4,13 +4,13 @@ const { Schema } = mongoose;
 const Promo = new Schema();
 
 Promo.add({
-    nombre: {type: String, required:true},
-    descripcion: {type: String, required:true},
+    titulo: {type: String, required:true},
+    contenido: {type: String, required: true},
     premium: {type: Boolean, required: true},
-    fechaIni: {type: Date, required: true},
-    fechaFin: {type: Date, required: true},
-    idRestaurante: {type: String, required:true},
-    activo: {type: Boolean, required: true}
+    estado: {type: Boolean, required: true},
+    fechaInicial: {type: Date, required: true},
+    fechaExpiracion: {type: Date, required: true},
+    idRestaurante: {type: String, required: true}
 });
 
 module.exports = mongoose.model('Promo', Promo);
