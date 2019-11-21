@@ -31,7 +31,7 @@ app.use(morgan('dev'));
 app.use(express.json());
 
 //Rutas:
-app.use('/taller',require('./rutas/taller.js'));
+app.use('/data',require('./rutas/dataManagement.js'));
 //Listener principal:
 app.listen(port, function () {
   console.log(`Servidor corriendo en puerto: ${port}`);
